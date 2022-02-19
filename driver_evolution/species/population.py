@@ -1,5 +1,4 @@
 from random import random, choices
-
 from driver_evolution.math import vector
 from driver_evolution.species.driver import Driver
 

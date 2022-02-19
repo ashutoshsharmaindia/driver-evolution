@@ -1,5 +1,4 @@
 from random import choice
-
 from driver_evolution.math import collision, vector
 
 MAX_FORCE = 0.5
