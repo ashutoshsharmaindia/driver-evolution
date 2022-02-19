@@ -1,9 +1,15 @@
 from driver_evolution import vector
+from driver_evolution import collision
 from random import choice
 
 MAX_FORCE = 0.5
 VEL_LIMIT = 5
 SIZE = 10
+
+# Statuses of driver
+ALIVE = 0
+CRASHED = 1
+COMPLETED = 2
 
 
 class Driver:
@@ -12,6 +18,7 @@ class Driver:
         self.velocity = [0, 0]
         self.acceleration = [0, 0]
         self.dna = dna
+        self.status = ALIVE
 
     @classmethod
     def from_random(cls, position, dna_length):
@@ -34,6 +41,14 @@ class Driver:
         self.position = vector.add(self.position, self.velocity)
         self.acceleration = [0, 0]
 
-    def get_status(self):
-        # TODO: check for collisions with walls and final checkpoint to see if successful
-        pass
+    def get_status(self, walls, checkpoint):
+        if self.status == ALIVE:
+            for wall in walls:
+                if collision.circle_to_line(self.position, SIZE, wall[0], wall[1]):
+                    self.status = CRASHED
+                    break
+
+            if collision.circle_to_circle(self.position, SIZE, checkpoint[0], checkpoint[1]):
+                self.status = COMPLETED
+
+        return self.status

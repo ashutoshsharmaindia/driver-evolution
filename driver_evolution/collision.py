@@ -16,5 +16,6 @@ def slope_and_intercept(p1, p2):
 def circle_to_line(c1, r1, l1, l2):
     slope, intercept = slope_and_intercept(l1, l2)
     int_x = (-slope * intercept + slope * c1[1] + c1[0]) / (slope ** 2 + 1)
+    int_x = max(min(int_x, l2[0]), l1[0])  # limit to l1[0] <= int_x <= l2[0], finite line
     int_y = slope * int_x + intercept
     return calc_dist((int_x, int_y), c1) <= r1
