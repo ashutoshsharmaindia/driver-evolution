@@ -19,6 +19,7 @@ class Driver:
         self.acceleration = [0, 0]
         self.dna = dna
         self.status = ALIVE
+        self.fitness = None
 
     @classmethod
     def from_random(cls, position, dna_length):
@@ -52,3 +53,13 @@ class Driver:
                 self.status = COMPLETED
 
         return self.status
+
+    def calculate_fitness(self, checkpoint):
+        if not self.fitness:
+            dist = collision.calc_dist(self.position, checkpoint[0])
+            if self.status == COMPLETED:
+                dist *= 10
+            elif self.status == CRASHED:
+                dist /= 10
+            self.fitness = dist
+        return self.fitness
