@@ -1,6 +1,6 @@
-from driver_evolution import vector
-from driver_evolution import collision
 from random import choice
+
+from driver_evolution.math import collision, vector
 
 MAX_FORCE = 0.5
 VEL_LIMIT = 5

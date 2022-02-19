@@ -1,6 +1,7 @@
-from driver_evolution.species.driver import Driver
-from driver_evolution import vector
 from random import random, choices
+
+from driver_evolution.math import vector
+from driver_evolution.species.driver import Driver
 
 
 class Population:
