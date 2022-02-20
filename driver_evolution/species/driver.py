@@ -14,12 +14,12 @@ class Driver:
         self.fitness = None
 
     @classmethod
-    def from_random(cls, position, dna_length):
+    def from_random(cls, position, dna_length):  # make random driver for initial generation
         dna = [vector.rand_vec() for _ in range(dna_length)]
         return cls(position, dna)
 
     @classmethod
-    def cross_over(cls, position, a, b):
+    def cross_over(cls, position, a, b):  # make driver from two parents
         new_dna = []
         for i in range(len(a.dna)):
             new_dna.append(choice([a.dna[i], b.dna[i]]))
