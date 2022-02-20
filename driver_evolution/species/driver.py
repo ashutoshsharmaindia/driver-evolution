@@ -1,14 +1,7 @@
 from random import choice
 from driver_evolution.math import collision, vector
-
-MAX_FORCE = 0.2
-VEL_LIMIT = 2
-SIZE = 10
-
-# Statuses of driver
-ALIVE = 0
-CRASHED = 1
-COMPLETED = 2
+from driver_evolution.species import (ALIVE, CRASHED, COMPLETED,  # statuses for driver
+                                      MAX_FORCE, VEL_LIMIT, SIZE)  # constraints for driver
 
 
 class Driver:

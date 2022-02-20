@@ -1,5 +1,5 @@
-from driver_evolution.species import Driver, Population
-from driver_evolution.species.driver import SIZE, ALIVE, CRASHED, COMPLETED
+from driver_evolution.species import Population
+from driver_evolution.species import SIZE, ALIVE, COMPLETED
 from driver_evolution.math import vector
 import pygame
 
