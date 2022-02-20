@@ -1,7 +1,7 @@
 from random import choice
 from driver_evolution.math import collision, vector
-from driver_evolution.species import (ALIVE, CRASHED, COMPLETED,  # statuses for driver
-                                      MAX_FORCE, VEL_LIMIT, SIZE)  # constraints for driver
+from driver_evolution.species.constants import (ALIVE, CRASHED, COMPLETED,  # statuses for driver
+                                                MAX_FORCE, VEL_LIMIT, SIZE)  # constraints for driver
 
 
 class Driver:
