@@ -15,7 +15,7 @@ def mag(a):
 
 
 def ang(a):
-    atan2(a[1], a[0])
+    return atan2(a[1], a[0])
 
 
 def from_ang_mag(ang, mag):

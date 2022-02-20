@@ -1,8 +1,8 @@
 from random import choice
 from driver_evolution.math import collision, vector
 
-MAX_FORCE = 0.5
-VEL_LIMIT = 5
+MAX_FORCE = 0.2
+VEL_LIMIT = 2
 SIZE = 10
 
 # Statuses of driver
@@ -33,6 +33,7 @@ class Driver:
         return cls(position, new_dna)
 
     def apply_force(self, force):
+        force = vector.limit_mag(force, MAX_FORCE)
         self.acceleration = vector.add(self.acceleration, vector.limit_mag(force, MAX_FORCE))
 
     def update(self):
@@ -57,8 +58,8 @@ class Driver:
         if not self.fitness:
             dist = collision.calc_dist(self.position, checkpoint[0])
             if self.status == COMPLETED:
-                dist *= 10
-            elif self.status == CRASHED:
                 dist /= 10
-            self.fitness = dist
+            elif self.status == CRASHED:
+                dist *= 10
+            self.fitness = 1 / dist
         return self.fitness
