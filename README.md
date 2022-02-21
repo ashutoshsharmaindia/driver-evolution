@@ -1,5 +1,5 @@
 # Driver Evolution
-"Drivers" evolve to pass through a simple obstacle course. Using
+Drivers evolve to pass through a simple obstacle course. Using
 an evolutionary algorithm, the drivers learn to avoid the obstacles
 and make it to the checkpoint. Better performing drivers (closer to the 
 checkpoint) will have more of their "genes" passed on to the next 
